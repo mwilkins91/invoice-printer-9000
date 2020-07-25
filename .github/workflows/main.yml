@@ -31,5 +31,8 @@ jobs:
         run: |
           git config --global user.email "contactme@markwilkins.dev"
           git config --global user.name "Mark Wilkins"
-      - name: deploy
-        run: npm run deploy
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
