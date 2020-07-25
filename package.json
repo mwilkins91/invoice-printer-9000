@@ -1,0 +1,23 @@
+{
+  "name": "alex_invoice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel index.pug",
+    "build": "parcel build index.pug"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^1.12.4",
+    "pug": "^3.0.0",
+    "sass": "^1.26.10"
+  },
+  "dependencies": {
+    "html2canvas": "^1.0.0-rc.5",
+    "jspdf": "^1.5.3"
+  }
+}
