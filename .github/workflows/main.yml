@@ -6,7 +6,7 @@ name: Deploy
 # events but only for the master branch
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -19,14 +19,17 @@ jobs:
         node-version: [11.x]
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-    - name: build
-      run: |
-        npm install
-        npm run build
-    - name: deploy
-      run:
-        npm run deploy
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+      - name: build
+        run: |
+          npm install
+          npm run build
+      - name: Configure Git
+        run: |
+          git config --global user.email "contactme@markwilkins.dev"
+          git config --global user.name "Mark Wilkins"
+      - name: deploy
+        run: npm run deploy
