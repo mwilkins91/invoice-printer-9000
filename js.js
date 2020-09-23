@@ -45,6 +45,16 @@ const download = () => {
   });
 };
 
+const handleSubTotalChange = (hstInput, totalInput) => (e) => {
+  try {
+    hstInput.textContent = e.target.textContent * 0.13;
+    totalInput.textContent =
+      Number(e.target.textContent) + Number(hstInput.textContent);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 const main = () => {
   const addBttn = document.getElementById("add_part");
   const subBttn = document.getElementById("sub_part");
@@ -53,6 +63,15 @@ const main = () => {
   addBttn.addEventListener("click", addPart);
   subBttn.addEventListener("click", removePart);
   dwnldBttn.addEventListener("click", download);
+
+  const hstInput = document.getElementById("Hst_result");
+  const subTotalInput = document.getElementById("Sub Total_result");
+  const totalInput = document.getElementById("Total_result");
+
+  subTotalInput.addEventListener(
+    "keyup",
+    handleSubTotalChange(hstInput, totalInput)
+  );
 };
 
 if (

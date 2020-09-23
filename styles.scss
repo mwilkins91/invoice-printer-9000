@@ -1,13 +1,17 @@
 body {
   padding: 10px;
+
   &.printing {
     padding: 30px 50px;
+
     button {
       display: none;
     }
   }
+
   @media print {
     padding: 30px 50px;
+
     button {
       display: none;
     }
@@ -68,6 +72,10 @@ body {
   &.with-gap {
     width: calc(50% - 2.5px);
   }
+}
+
+.max-half-width {
+  max-width: 50%;
 }
 
 .third-width {
@@ -219,4 +227,23 @@ body {
   bottom: 3px;
   right: 3px;
   background: white;
+}
+
+
+.alex_sig_container {
+  position: relative;
+  width: 50%;
+
+  &:after {
+    content: '';
+    position: absolute;
+    border-bottom: 1px solid black;
+    width: 100%;
+    bottom: 20px;
+  }
+}
+
+.alex_sig {
+  max-height: 60px;
+  margin: 0 auto;
 }
