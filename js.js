@@ -1,5 +1,6 @@
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
+import html2pdf from "html2pdf.js";
 
 const addPart = () => {
   const part_list = document.getElementById("part-list");
@@ -29,13 +30,16 @@ const download = () => {
   document.body.classList.add("printing");
 
   requestAnimationFrame(() => {
-    html2canvas(document.querySelector("body"), {
-      scale: quality,
-    })
-      .then((canvas) => {
-        let pdf = new jsPDF("p", "mm", "a4");
-        pdf.addImage(canvas.toDataURL("image/png"), "PNG", 0, 0, 211, 298);
-        pdf.save(filename);
+    html2pdf()
+      .from(document.body)
+      .set({
+        margin: 0,
+        filename: "Invoice.pdf",
+        html2canvas: { scale: quality },
+        jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+      })
+      .save()
+      .then(() => {
         document.body.classList.remove("printing");
       })
       .catch((err) => {
