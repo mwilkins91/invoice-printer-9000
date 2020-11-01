@@ -19,7 +19,7 @@ body.printing button {
 .logo {
   display: block;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 0 auto 10px;
 }
 
 .flex {
@@ -232,6 +232,10 @@ body.printing button {
 .alex_sig {
   max-height: 60px;
   margin: 0 auto;
+}
+
+.ft-sz-19 {
+  font-size: 19px;
 }
 
 /*# sourceMappingURL=/styles.164d45a1.css.map */
