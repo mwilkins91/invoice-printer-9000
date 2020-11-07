@@ -29,14 +29,20 @@ const download = () => {
   const filename = "Invoice.pdf";
   document.body.classList.add("printing");
 
-  requestAnimationFrame(() => {
+  setTimeout(() => {
     html2pdf()
       .from(document.body)
       .set({
         margin: 0,
         filename: "Invoice.pdf",
-        html2canvas: { scale: quality },
-        jsPDF: { unit: "in", format: "letter", orientation: "portrait" },
+        html2canvas: { scale: 3 },
+        jsPDF: {
+          unit: "in",
+          format: "a4",
+          orientation: "portrait",
+          // precision: 100,
+        },
+        pagebreak: { mode: "avoid-all" },
       })
       .save()
       .then(() => {
@@ -46,7 +52,7 @@ const download = () => {
         console.error(err);
         alert("something broke, sorry!");
       });
-  });
+  }, 500);
 };
 
 const handleSubTotalChange = (hstInput, totalInput) => (e) => {
