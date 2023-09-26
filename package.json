@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel index.pug",
+    "dev": "parcel index.html",
     "build": "parcel build index.pug --public-url /invoice-printer-9000",
     "deploy": "gh-pages -d dist"
   },
